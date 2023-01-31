@@ -40,7 +40,7 @@ class UploadController extends GetxController {
   void _loadPhotos() async {
     var result = await PhotoManager.requestPermissionExtend();
     if (result.isAuth) {
-      albums = await PhotoManager.getAssetPathList(
+      albums = await PhotoManager.getAssetPathList(onlyAll: true,
         type: RequestType.image,
         filterOption: FilterOptionGroup(
           imageOption: const FilterOption(
